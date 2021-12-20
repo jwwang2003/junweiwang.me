@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navigation-underline {
+    @apply w-full border-b-2 border-gray-600;
+  }
+}
+
 html,
 body {
   padding: 0;

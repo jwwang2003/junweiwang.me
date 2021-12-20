@@ -12,8 +12,8 @@ const routes = [
       href: '/blog',
   },
   {
-      name: 'Portfolio',
-      href: '/portfolio',
+      name: 'Projects',
+      href: '/projects',
   },
 ]
 
@@ -24,15 +24,15 @@ export default function Nav() {
   return (
     <AnimateSharedLayout>
       <div className="w-full  mx-auto mt-8 mb-4">
-        <nav className="flex flex-row flex-warp justify-center max-w-xs mx-auto">
+        <nav className="flex flex-row flex-warp justify-center p-2 max-w-xs mx-auto bg-white shadow-xl rounded-md">
           {routes.map(({name, href}) => (
             <Link key={name} href={href} passHref>
-              <a>
+              <a className="px-4">
                 {name}
                 {isActiveLink(href, router.pathname) && (
                   <motion.div
-                    layoutId="navigation-underline"
-                    className="navigation-underline"
+                    layoutId="nav-underline"
+                    className="nav-underline"
                     animate
                   />
                 )}

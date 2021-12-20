@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer components {
-  .navigation-underline {
-    @apply w-full border-b-2 border-gray-600;
+  .nav-underline {
+    @apply w-full border-b-2 border-gray-300;
   }
 }
 

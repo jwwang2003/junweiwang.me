@@ -1,25 +1,26 @@
-import { useEffect } from 'react'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import { NextSeo } from "next-seo"
+import { motion } from "framer-motion"
 
-import HeaderCard from './HeaderCard'
-import Nav from './Nav'
+const animationVariants = {
+  hidden: { opacity: 0, x: -200, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: -200, y: 0},
+}
 
-export default function Layout({ children }) {
-  useEffect(() => {
-    AOS.init({
-      once: true
-    })
-  })
+export default function Layout({ children, title, description }) {
   return (
-    <div className="min-h-screen py-10 px-3 sm:px-5 bg-gray-200">
-      <div data-aos-duration="400">
-        <HeaderCard />
-      </div>
-      <div data-aos-duration="400">
-        <Nav />
-      </div>
-      { children }
+    <div className="w-full">
+      <NextSeo title={title} description={description} openGraph={{ title, description }} />
+      <motion.main
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={animationVariants}
+        transition={{ type: 'linear' }}
+        className="bg-white rounded-md shadow-xl backdrop-blur-sm"
+      >
+        {children}
+      </motion.main>
     </div>
   )
 }

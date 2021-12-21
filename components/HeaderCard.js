@@ -47,7 +47,7 @@ function Card() {
     <div className="w-full">
       <div className="flex flex-col justify-center max-w-md mx-auto bg-white shadow-xl rounded-md p-5">
         <div className="">
-          <img className="w-32 mx-auto shadow-xl rounded-full" src="/me1.jpg" alt="Profile face" />
+          <img className="w-32 mx-auto shadow-xl rounded-full" src="/me1.jpg" alt="Profile face" width="8rem" height="8rem"/>
         </div>
         <div className="text-center mt-5">
           <p

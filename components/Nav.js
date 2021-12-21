@@ -23,7 +23,7 @@ export default function Nav() {
 
   return (
     <AnimateSharedLayout>
-      <div className="w-full  mx-auto mt-8 mb-4">
+      <div className="w-full  mx-auto my-6">
         <nav className="flex flex-row flex-warp justify-center p-2 max-w-xs mx-auto bg-white shadow-xl rounded-md">
           {routes.map(({name, href}) => (
             <Link key={name} href={href} passHref>

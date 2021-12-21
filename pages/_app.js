@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'normalize.css'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,13 +23,13 @@ class MyApp extends App {
 
     return (
       <div className="flex flex-col min-h-screen pt-10 pb-5 px-3 sm:px-5 bg-gray-200">
-        <div data-aos="fade-down" data-aos-duration="400">
+        <div header-entrance-animation="">
           <HeaderCard />
         </div>
-        <div data-aos="fade-in" data-aos-duration="400" data-aos-delay="200">
+        <div nav-entrance-animation="" className="sticky top-0 z-10">
           <Nav />
         </div>
-        <div data-aos="fade-up" data-aos-duration="400" data-aos-delay="400">
+        <div content-entrance-animation="" className="mb-6" >
           <AnimatePresence exitBeforeEnter>
             <Component {...pageProps} key={router.route} />
           </AnimatePresence>

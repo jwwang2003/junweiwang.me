@@ -37,10 +37,15 @@ function Card() {
 
   const Redirect = (url) =>
     toast.warn(<RedirectWarning url={url} />) 
+
+    const CopyEmail = () => {
+      navigator.clipboard.writeText('jwwang.03@outlook.com');
+      toast.success("Email copied!")
+    }
   
   return (
     <div className="w-full">
-      <div className="flex flex-col justify-center max-w-xs mx-auto bg-white shadow-xl rounded-md p-5">
+      <div className="flex flex-col justify-center max-w-md mx-auto bg-white shadow-xl rounded-md p-5">
         <div className="">
           <img className="w-32 mx-auto shadow-xl rounded-full" src="/me1.jpg" alt="Profile face" />
         </div>
@@ -95,7 +100,7 @@ function Card() {
               className="text-2xl m-1 p-1 sm:m-2 sm:p-2 text-red-500 hover:bg-red-500 rounded-full hover:text-white transition-colors duration-300"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => Redirect(_email)}
+              onClick={() => CopyEmail()}
             >
               <AiOutlineMail />
               <span className="sr-only">Email</span>

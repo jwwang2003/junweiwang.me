@@ -4,7 +4,37 @@ export default function Home() {
   
   return (
     <Layout>
-      Main
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      <h1>Main</h1>
+      
     </Layout>
   )
 }

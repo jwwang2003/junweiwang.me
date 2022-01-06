@@ -20,13 +20,10 @@ export default function Nav({ className, routes }) {
         style={{ backgroundColor: '#24C7CB' }}
       >
         <h1 className="font-light text-center sm:mr-auto">Jun Wei Wang</h1>
-        <Link href="/auth" passHref>
-          <a className={`${isActiveLink('/auth', router.pathname) ? 'text-white ring-white' : 'text-gray-300'} px-2 ring-1 ring-gray-200 opacity-0 hover:opacity-100 transition-opacity duration-150`}>Auth</a>
-        </Link>
         <div className="flex flex-row justify-center sm:justify-normal">
           {routes.map(({ name, href }) => (
             <Link key={href} href={href} passHref>
-              <a className={`${isActiveLink(href, router.pathname) ? 'text-white' : 'text-gray-300'} px-4 transition-color duration-150`}>
+              <a href={href} className={`${isActiveLink(href, router.pathname) ? 'text-white' : 'text-gray-300'} px-4 transition-color duration-150`}>
                 {name}
               </a>
             </Link>

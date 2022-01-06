@@ -5,6 +5,7 @@
     },
     "extends": [
         "plugin:react/recommended",
+        "plugin:@next/next/recommended",
         "airbnb"
     ],
     "parserOptions": {
@@ -19,6 +20,7 @@
     ],
     "rules": {
         "import/no-import-module-exports": "off",
+        "@next/next/no-img-element": "off",
         "react/jsx-no-undef": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [
@@ -26,6 +28,7 @@
             "extensions": [".js", ".jsx"]
             }
         ],
+        "react/jsx-props-no-spreading": "off",
         "singleQuote": 0
     }
 }

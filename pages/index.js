@@ -18,7 +18,7 @@ export default function Home() {
             <Button className="w-min">Resume</Button>
           </div>
           <div className="test">
-            <img src="/me1.jpeg" width="200px" alt="A portrait of me" />
+            <img src="/me1.jpeg" alt="A portrait of me" />
           </div>
         </Section>
         <Section>

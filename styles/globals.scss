@@ -50,3 +50,40 @@ a {
     transform: initial;
   }
 }
+
+.test {
+  position: relative;
+}
+
+.test:hover::before {
+  top: -5px;
+  left: -5px;
+}
+
+.test::before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid white;
+  transition: 0.15s ease;
+}
+
+.test::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #24C7CB;
+  opacity: 0.3;
+  transition: opacity 0.15s ease;
+}
+
+.test:hover::after {
+  opacity: 0;
+}

@@ -1,7 +1,31 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    // Other rules
-    "@next/next/no-img-element": "off"
-  }
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "import/no-import-module-exports": "off",
+        "react/jsx-no-undef": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [
+            1, {
+            "extensions": [".js", ".jsx"]
+            }
+        ],
+        "singleQuote": 0
+    }
 }

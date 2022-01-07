@@ -91,12 +91,10 @@ function Section({ children, className }) {
 
 Section.defaultProps = {
   children: null,
-  first: false,
   className: '',
 };
 
 Section.propTypes = {
   children: propTypes.node,
-  first: propTypes.bool,
   className: propTypes.string,
 };

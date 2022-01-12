@@ -2,7 +2,6 @@ export default function Input({ ...args }) {
   return (
     <input
       className="
-        form-control
         block
         w-full
         px-3

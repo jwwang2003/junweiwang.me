@@ -1,25 +1,48 @@
-import App from 'next/app';
-import { AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import useScrollListener from '../utils/hooks/useScrollListener';
 
 import 'normalize.css';
 import '../styles/globals.scss';
 
-import Skeleton from '../components/Skeleton';
+const routes = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'Blog',
+    href: '/blog',
+  },
+  {
+    name: 'Projects',
+    href: '/projects',
+  },
+];
 
-class MyApp extends App {
-  render() {
-    const { Component, pageProps, router } = this.props;
+function MyApp(props) {
+  const { Component, pageProps, router } = props;
 
-    return (
-      <Skeleton className="flex flex-col min-h-screen pt-10 pb-5 px-3 sm:px-5 bg-zinc-900">
-        <div content-entrance-animation="" className="mb-6">
-          <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} key={router.route} />
-          </AnimatePresence>
-        </div>
-      </Skeleton>
-    );
-  }
+  const scroll = useScrollListener();
+  const [navClassList, setNavClassList] = useState([]);
+
+  useEffect(() => {
+    const classList = [];
+
+    if (scroll.y > 125 && scroll.y - scroll.lastY > 0) { classList.push('-translate-y-full'); }
+
+    setNavClassList(classList);
+  }, [scroll.y, scroll.lastY]);
+
+  return (
+    <div className="flex flex-col w-full min-h-screen bg-zinc-900 text-white">
+      <Nav className={navClassList.join(' ')} routes={routes} />
+      <Component {...pageProps} key={router.route} />
+      <Footer />
+    </div>
+  );
 }
 
 export default MyApp;

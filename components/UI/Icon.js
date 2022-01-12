@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export default function Icon({
   children, className, label, ...args
 }) {
@@ -13,17 +11,3 @@ export default function Icon({
     </a>
   );
 }
-
-Icon.defaultProps = {
-  children: null,
-  className: '',
-  label: '',
-  args: [],
-};
-
-Icon.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  label: PropTypes.string,
-  args: PropTypes.arrayOf(PropTypes.any),
-};

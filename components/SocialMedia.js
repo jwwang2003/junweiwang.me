@@ -43,7 +43,7 @@ const socialMedia = [
 
 export default function SocialMedia() {
   return (
-    <>
+    <div className="flex flex-row">
       {
       socialMedia.map(({
         name, icon, className, url,
@@ -60,6 +60,6 @@ export default function SocialMedia() {
         </Icon>
       ))
     }
-    </>
+    </div>
   );
 }

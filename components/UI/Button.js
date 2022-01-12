@@ -1,5 +1,3 @@
-import propTypes from 'prop-types';
-
 export default function Button({
   children, className, ...args
 }) {
@@ -14,15 +12,3 @@ export default function Button({
     </button>
   );
 }
-
-Button.defaultProps = {
-  children: null,
-  className: '',
-  args: [],
-};
-
-Button.propTypes = {
-  children: propTypes.node,
-  className: propTypes.string,
-  args: propTypes.arrayOf(propTypes.any),
-};

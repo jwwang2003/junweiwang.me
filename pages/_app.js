@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
 
   return <>
     <Script type="text/javascript" src="/darkTheme.js" strategy="beforeInteractive" />
-    <div className="font-light flex flex-col bg-zinc-100 dark:bg-black dark:text-white min-h-screen transition-color duration-300 ease-in-out">
+    <div className="font-light flex flex-col bg-zinc-100 dark:bg-black dark:text-white min-h-screen">
       <Navigation theme={theme} setTheme={setTheme} />
       <Component {...pageProps} />
       <Footer />

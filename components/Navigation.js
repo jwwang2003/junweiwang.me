@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
 import { AiFillHome, AiFillCalendar, AiFillCamera } from 'react-icons/ai'
 import { MdWbSunny, MdDarkMode } from 'react-icons/md'
 import clsx from 'clsx'
@@ -7,11 +6,9 @@ import Link from 'next/link'
 
 import useScrollListener from '../helpers/hooks/useScrollListener'
 
-export default function Navigation() {
-  const [ mounted, setMounted ] = useState(false)
-  const { theme, setTheme } = useTheme()
+export default function Navigation({ theme, setTheme }) {
+  const [mounted, setMounted] = useState(false)
 
-  // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
 
   const [hideNav, setHideNav] = useState(false)
@@ -22,16 +19,14 @@ export default function Navigation() {
     else setHideNav(false)
 
   }, [scroll.y, scroll.lastY])
-  
-  if (!mounted) return null
 
   return <nav
     className={
       clsx(hideNav && '-translate-y-full',
-      'sticky top-0 z-10',
-      'flex items-center',
-      'p-3 sm:px-8',
-      'bg-white dark:bg-neutral-900 transition-transform duration-300 ease-in-out')
+        'sticky top-0 z-10',
+        'flex items-center',
+        'p-3 sm:px-8',
+        'bg-white dark:bg-neutral-900 transition-transform duration-300 ease-in-out')
     }>
     <h1 className="flex justify-center font-medium mr-auto">
       <p className="text-xl">{'<'}</p>
@@ -39,6 +34,18 @@ export default function Navigation() {
       <p className="text-xl">{'/>'}</p>
     </h1>
     <section className="text-2xl flex flex-row items-center">
+      <a className="cursor-pointer mx-2 first:ml-0 last:mr-0">
+        {
+          mounted ?
+            <>{
+              theme === "dark" ?
+                <MdWbSunny onClick={() => setTheme("light")} /> :
+                <MdDarkMode onClick={() => setTheme("dark")} />
+            }</>
+            :
+            <></>
+        }
+      </a>
       <Link href="/" passHref>
         <a className="mx-2 first:ml-0 last:mr-0">
           <AiFillHome />
@@ -54,13 +61,6 @@ export default function Navigation() {
           <AiFillCamera />
         </a>
       </Link>
-      <a className="cursor-pointer mx-2 first:ml-0 last:mr-0">
-        {
-          theme === "dark" ? 
-          <MdWbSunny onClick={() => setTheme("light")} /> :
-          <MdDarkMode onClick={() => setTheme("dark")} />
-        }
-      </a>
     </section>
   </nav>
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 import { AiFillHome, AiFillCalendar, AiFillCamera } from 'react-icons/ai'
 import { MdWbSunny, MdDarkMode } from 'react-icons/md'
 import clsx from 'clsx'
@@ -6,7 +7,13 @@ import Link from 'next/link'
 
 import useScrollListener from '../helpers/hooks/useScrollListener'
 
-export default function Navigation({ theme, setTheme }) {
+export default function Navigation() {
+  const [ mounted, setMounted ] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  // When mounted on client, now we can show the UI
+  useEffect(() => setMounted(true), [])
+
   const [hideNav, setHideNav] = useState(false)
   const scroll = useScrollListener()
 
@@ -16,6 +23,8 @@ export default function Navigation({ theme, setTheme }) {
 
   }, [scroll.y, scroll.lastY])
   
+  if (!mounted) return null
+
   return <nav
     className={
       clsx(hideNav && '-translate-y-full',
@@ -47,7 +56,7 @@ export default function Navigation({ theme, setTheme }) {
       </Link>
       <a className="cursor-pointer mx-2 first:ml-0 last:mr-0">
         {
-          theme ? 
+          theme === "dark" ? 
           <MdWbSunny onClick={() => setTheme("light")} /> :
           <MdDarkMode onClick={() => setTheme("dark")} />
         }

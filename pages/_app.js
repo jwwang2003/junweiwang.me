@@ -1,48 +1,44 @@
-import { useState, useEffect } from 'react';
+import Script from 'next/script'
+import { useEffect } from 'react'
+import 'normalize.css'
+import '../styles/globals.css'
 
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-import useScrollListener from '../utils/hooks/useScrollListener';
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
+import { useTheme } from '../helpers/hooks/useTheme'
 
-import 'normalize.css';
-import '../styles/globals.scss';
-
-const routes = [
-  {
-    name: 'Home',
-    href: '/',
-  },
-  {
-    name: 'Blog',
-    href: '/blog',
-  },
-  {
-    name: 'Projects',
-    href: '/projects',
-  },
-];
-
-function MyApp(props) {
-  const { Component, pageProps, router } = props;
-
-  const scroll = useScrollListener();
-  const [navClassList, setNavClassList] = useState([]);
+function MyApp({ Component, pageProps }) {
+  const [theme, setTheme] = useTheme()
 
   useEffect(() => {
-    const classList = [];
+    const media = window.matchMedia("(prefers-color-scheme: dark)")
 
-    if (scroll.y > 125 && scroll.y - scroll.lastY > 0) { classList.push('-translate-y-full'); }
+    if(theme === "dark") document.documentElement.classList.add("dark")
+    else document.documentElement.classList.remove("dark")
 
-    setNavClassList(classList);
-  }, [scroll.y, scroll.lastY]);
+    let listener = () => {
+      if(media.matches) {
+        setTheme("dark")
+        document.documentElement.classList.add("dark")
+      }
+      else {
+        setTheme("")
+        document.documentElement.classList.remove("dark")
+      }
+    }
 
-  return (
-    <div className="flex flex-col w-full min-h-screen bg-zinc-900 text-white">
-      <Nav className={navClassList.join(' ')} routes={routes} />
-      <Component {...pageProps} key={router.route} />
+    media.addListener(listener)
+    return () => media.removeListener(listener)
+  }, [theme, setTheme])
+
+  return <>
+    <Script type="text/javascript" src="/darkTheme.js" strategy="beforeInteractive" />
+    <div className="font-light flex flex-col bg-zinc-100 dark:bg-black dark:text-white min-h-screen transition-color duration-300 ease-in-out">
+      <Navigation theme={theme} setTheme={setTheme} />
+      <Component {...pageProps} />
       <Footer />
     </div>
-  );
+  </>
 }
 
-export default MyApp;
+export default MyApp

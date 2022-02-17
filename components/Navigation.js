@@ -47,8 +47,8 @@ export default function Navigation({ theme, setTheme }) {
       </Link>
       <a className="cursor-pointer mx-2 first:ml-0 last:mr-0">
         {
-          theme === "dark" ? 
-          <MdWbSunny onClick={() => setTheme("")} /> :
+          theme ? 
+          <MdWbSunny onClick={() => setTheme("light")} /> :
           <MdDarkMode onClick={() => setTheme("dark")} />
         }
       </a>

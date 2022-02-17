@@ -5,7 +5,7 @@ export const useTheme = () => {
 
   useEffect(() => {
     setValue(
-      (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? 'dark' : '')
+      (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) || document.documentElement.classList.contains('dark')) ? 'dark' : '')
   }, [])
 
   useEffect(() => {

@@ -1,9 +1,10 @@
 import clsx from "clsx"
 
+import BasicLayout from "../components/BasicLayout"
 import SocialMedia from '../components/SocialMedia'
 
 export default function Home() {
-  return (
+  return <BasicLayout>
     <div className="p-8">
       <Container className="flex flex-col-reverse sm:flex-row ">
         {/* <img src="/me1.jpeg" className="max-h-72 w-min mx-auto sm:mr-4"/> */}
@@ -18,7 +19,7 @@ export default function Home() {
         </section>
       </Container>
     </div>
-  )
+  </BasicLayout>
 }
 
 function Container({ children, className }) {

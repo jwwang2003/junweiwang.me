@@ -1,7 +1,9 @@
+import BasicLayout from '../components/BasicLayout'
+
 export default function Test() {
   return (
-    <div>
+    <BasicLayout>
       Test
-    </div>
+    </BasicLayout>
   )
 }

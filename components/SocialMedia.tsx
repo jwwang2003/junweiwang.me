@@ -34,12 +34,18 @@ export default function SocialMedia() {
   </>
 }
 
-function IconTemplate({ children, className, ...args }) {
+interface props {
+  children: React.ReactChild | React.ReactChild[],
+  className: string,
+  href: string
+}
+
+function IconTemplate({ children, className, href }: props) {
   return <a 
     className={`${className} text-2xl mx-1 p-1 sm:p-2 first:ml-0 last:mr-0 rounded hover:text-white transition-colors duration-100 ease-in-out`}
     target="_blank"
     rel="noopener noreferrer"
-    {...args}
+    href={href}
     >
     { children }
   </a>

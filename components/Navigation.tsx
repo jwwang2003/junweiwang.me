@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { AiFillHome, AiFillCalendar, AiFillCamera } from 'react-icons/ai'
 import { MdWbSunny, MdDarkMode } from 'react-icons/md'
 import clsx from 'clsx'
@@ -6,7 +6,12 @@ import Link from 'next/link'
 
 import useScrollListener from '../helpers/hooks/useScrollListener'
 
-export default function Navigation({ theme, setTheme }) {
+interface props {
+  theme: string,
+  setTheme: React.Dispatch<React.SetStateAction<string>>
+}
+
+export default function Navigation({ theme, setTheme }: props) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])

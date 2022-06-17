@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiFillHeart, AiOutlineCopyrightCircle } from 'react-icons/ai'
+import { AiFillHeart, AiFillLock } from 'react-icons/ai'
 
 import SocialMedia from './SocialMedia'
 
@@ -31,7 +31,7 @@ export default function Footer() {
         <p className="text-zinc-400 italic font-light py-1 first:pt-0 last:pb-0">jwwang.03@outlook.com</p>
       </Container>
       <Container>
-        <AiOutlineCopyrightCircle className="mr-1" />2022
+        &copy; 2022
       </Container>
     </div>
   )

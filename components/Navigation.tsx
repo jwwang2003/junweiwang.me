@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { AiFillHome, AiFillCalendar, AiFillCamera } from 'react-icons/ai'
+import { AiFillHome, AiFillCalendar, AiFillCamera, AiFillLock, AiFillUnlock } from 'react-icons/ai'
 import { MdWbSunny, MdDarkMode } from 'react-icons/md'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -64,6 +64,11 @@ export default function Navigation({ theme, setTheme }: props) {
       <Link href="/gallery" passHref>
         <a className="mx-2 first:ml-0 last:mr-0">
           <AiFillCamera />
+        </a>
+      </Link>
+      <Link href="/auth" passHref>
+        <a className="mx-2 first:ml-0 last:mr-0">
+          <AiFillLock />
         </a>
       </Link>
     </section>

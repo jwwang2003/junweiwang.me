@@ -1,0 +1,56 @@
+.button {
+  @apply px-3 py-1 
+  bg-slate-200 
+  text-black dark:text-white
+  border-2 border-slate-500 
+  rounded-sm shadow-md 
+  transition-all duration-200;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.block {
+  @apply w-full;
+}
+
+.button:hover {
+  @apply shadow-sm;
+}
+
+.primary {
+  @apply bg-cyan-400 border-cyan-500 
+}
+
+.success {
+  @apply bg-green-300 border-green-400
+}
+
+.danger {
+  @apply bg-red-300 border-red-400
+}
+
+.warning {
+  @apply bg-yellow-300 border-yellow-400
+}
+
+.info {
+  @apply bg-blue-400 border-blue-500
+}
+
+.non-primary {
+  @apply bg-transparent;
+}
+
+.xs {
+  @apply px-2 py-1 text-xs
+}
+
+.sm {
+  @apply text-xs
+}
+
+.md {
+  @apply text-sm
+}
